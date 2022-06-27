@@ -1,6 +1,10 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { MediaType } from "@vime/core";
 
 export const client = new ApolloClient({
-    uri: "https://api-us-west-2.graphcms.com/v2/cl4smf76l298d01yxgbq29kc1/master",
+    uri: import.meta.env.VITE_API_URL,
+    headers: {
+        "Authorization": `Bearer ${import.meta.env.VITE_API_ACESS_TOKEN}`
+    },
     cache: new InMemoryCache()
 })
